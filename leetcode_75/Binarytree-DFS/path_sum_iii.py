@@ -95,3 +95,39 @@ class Solution:
         dfs(root, 0)
 
         return self.paths
+        
+        
+        # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        self.paths=0
+        self.pathdict={0:1}
+        def dfs(root,curr):
+            if root is None:
+                return None
+            curr+=root.val
+
+            self.paths+=self.pathdict.get(curr-targetSum,0)
+            self.pathdict[curr]=self.pathdict.get(curr,0)+1
+
+            if root.left:
+                dfs(root.left,curr)
+            if root.right:
+                dfs(root.right,curr)
+            self.pathdict[curr]=self.pathdict.get(curr,0)-1
+
+        dfs(root,0)
+
+        return self.paths
+
+
+
+            
+        
+        
+        
