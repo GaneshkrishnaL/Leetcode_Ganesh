@@ -1,2 +1,2 @@
 # Leetcode_Ganesh
-Collection of my LeetCode Solutions
+Collection of my LeetCode Solutions.
